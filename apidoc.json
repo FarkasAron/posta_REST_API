@@ -1,0 +1,12 @@
+{
+  "name": "Megyék és városok REST API",
+  "version": "1.0.0",
+  "description": "Magyar megyék és települések (irányítószámok) REST API-ja. Az olvasó végpontok publikusak, az adatmódosításhoz Sanctum Bearer token szükséges (POST /api/login).",
+  "title": "Megyék és városok API – dokumentáció",
+  "url": "http://localhost:8000/api",
+  "order": ["Auth", "Cities", "Counties"],
+  "template": {
+    "withCompare": false,
+    "withGenerator": false
+  }
+}

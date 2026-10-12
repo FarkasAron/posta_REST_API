@@ -1,0 +1,17 @@
+info:
+  name: county-delete
+  type: http
+  seq: 16
+
+http:
+  method: DELETE
+  url: http://localhost:8000/api/counties/{{county_id}}
+  auth:
+    type: bearer
+    token: "{{token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

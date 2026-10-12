@@ -1,0 +1,15 @@
+info:
+  name: city-show
+  type: http
+  seq: 6
+
+http:
+  method: GET
+  url: http://localhost:8000/api/cities/1
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

@@ -1,0 +1,11 @@
+{
+    "$schema": "https://json.schemastore.org/package.json",
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "docs": "apidoc -i app/Http/Controllers -o public/docs"
+    },
+    "devDependencies": {
+        "apidoc": "^1.2.0"
+    }
+}

@@ -1,0 +1,26 @@
+info:
+  name: city-update-put
+  type: http
+  seq: 9
+
+http:
+  method: PUT
+  url: http://localhost:8000/api/cities/{{city_id}}
+  body:
+    type: json
+    data: |-
+      {
+          "name": "Újváros",
+          "id_county": 7,
+          "zip_code": 8000,
+          "population": 2500
+      }
+  auth:
+    type: bearer
+    token: "{{token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

@@ -1,0 +1,23 @@
+info:
+  name: county-update
+  type: http
+  seq: 15
+
+http:
+  method: PATCH
+  url: http://localhost:8000/api/counties/{{county_id}}
+  body:
+    type: json
+    data: |-
+      {
+          "name": "Teszt megye 2"
+      }
+  auth:
+    type: bearer
+    token: "{{token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
