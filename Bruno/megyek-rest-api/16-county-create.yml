@@ -1,7 +1,7 @@
 info:
-  name: county-create
+  name: 16-county-create
   type: http
-  seq: 14
+  seq: 16
 
 http:
   method: POST
@@ -15,6 +15,16 @@ http:
   auth:
     type: bearer
     token: "{{token}}"
+
+runtime:
+  scripts:
+    - type: after-response
+      code: |-
+        bru.setVar("county_id", res.body.data.id);
+  assertions:
+    - expression: res.status
+      operator: eq
+      value: "201"
 
 settings:
   encodeUrl: true

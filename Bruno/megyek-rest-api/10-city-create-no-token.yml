@@ -1,11 +1,11 @@
 info:
-  name: city-update-put
+  name: 10-city-create-no-token
   type: http
-  seq: 9
+  seq: 10
 
 http:
-  method: PUT
-  url: http://localhost:8000/api/cities/{{city_id}}
+  method: POST
+  url: http://localhost:8000/api/cities
   body:
     type: json
     data: |-
@@ -13,11 +13,17 @@ http:
           "name": "Újváros",
           "id_county": 7,
           "zip_code": 8000,
-          "population": 2500
+          "population": 1500
       }
   auth:
     type: bearer
-    token: "{{token}}"
+    token: hibas-token
+
+runtime:
+  assertions:
+    - expression: res.status
+      operator: eq
+      value: "401"
 
 settings:
   encodeUrl: true

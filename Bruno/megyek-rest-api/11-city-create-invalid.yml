@@ -1,7 +1,7 @@
 info:
-  name: city-create
+  name: 11-city-create-invalid
   type: http
-  seq: 7
+  seq: 11
 
 http:
   method: POST
@@ -10,14 +10,20 @@ http:
     type: json
     data: |-
       {
-          "name": "Újváros",
-          "id_county": 7,
-          "zip_code": 8000,
-          "population": 1500
+          "name": "Új",
+          "id_county": 999,
+          "zip_code": 12,
+          "population": -1
       }
   auth:
     type: bearer
     token: "{{token}}"
+
+runtime:
+  assertions:
+    - expression: res.status
+      operator: eq
+      value: "422"
 
 settings:
   encodeUrl: true

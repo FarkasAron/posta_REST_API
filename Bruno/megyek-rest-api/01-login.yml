@@ -1,5 +1,5 @@
 info:
-  name: login
+  name: 01-login
   type: http
   seq: 1
 
@@ -14,6 +14,16 @@ http:
           "password": "password"
       }
   auth: inherit
+
+runtime:
+  scripts:
+    - type: after-response
+      code: |-
+        bru.setVar("token", res.body.token);
+  assertions:
+    - expression: res.status
+      operator: eq
+      value: "200"
 
 settings:
   encodeUrl: true

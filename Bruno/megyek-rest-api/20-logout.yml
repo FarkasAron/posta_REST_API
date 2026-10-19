@@ -1,7 +1,7 @@
 info:
-  name: logout
+  name: 20-logout
   type: http
-  seq: 17
+  seq: 20
 
 http:
   method: POST
@@ -9,6 +9,12 @@ http:
   auth:
     type: bearer
     token: "{{token}}"
+
+runtime:
+  assertions:
+    - expression: res.status
+      operator: eq
+      value: "200"
 
 settings:
   encodeUrl: true

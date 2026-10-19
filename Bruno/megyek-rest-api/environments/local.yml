@@ -1,8 +1,0 @@
-name: local
-variables:
-  - name: token
-    value: ''
-  - name: city_id
-    value: '1'
-  - name: county_id
-    value: '21'

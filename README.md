@@ -50,7 +50,7 @@ A seeder a valódi magyar megye- és településlistát tölti be (`database/see
 
 ## Tesztelés
 
-**Bruno:** nyisd meg a `Bruno/megyek-rest-api` mappát kollekcióként, válaszd ki a `local` környezetet. Futtasd a `login` kérést, a válaszban kapott `token` értékét másold a környezet `token` változójába, ezután az 🔒 kérések is működnek. A `city_id` és `county_id` változót a create kérések válaszából állítsd be.
+**Bruno:** a Brunóban `Open Collection`, majd a `Bruno/megyek-rest-api` mappa kiválasztása (a szervernek és az adatbázisnak futnia kell, `php artisan serve`). A kérések számozottak és sorrendben egymásra épülnek: a `01-login` automatikusan eltárolja a tokent, a `12-city-create` és a `16-county-create` az új azonosítót, ezért semmit nem kell kézzel bemásolni. Minden kérés ellenőrzi a várt státuszkódot (köztük a 401, 409 és 422 hibaeseteket is), így a kollekció a **Run** gombbal egyben lefuttatható. Parancssorból: `cd Bruno/megyek-rest-api && npx @usebruno/cli run`.
 
 **Automata tesztek** (PHPUnit, 20 teszt): `php artisan test`
 

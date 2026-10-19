@@ -1,0 +1,36 @@
+info:
+  name: 12-city-create
+  type: http
+  seq: 12
+
+http:
+  method: POST
+  url: http://localhost:8000/api/cities
+  body:
+    type: json
+    data: |-
+      {
+          "name": "Újváros",
+          "id_county": 7,
+          "zip_code": 8000,
+          "population": 1500
+      }
+  auth:
+    type: bearer
+    token: "{{token}}"
+
+runtime:
+  scripts:
+    - type: after-response
+      code: |-
+        bru.setVar("city_id", res.body.data.id);
+  assertions:
+    - expression: res.status
+      operator: eq
+      value: "201"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

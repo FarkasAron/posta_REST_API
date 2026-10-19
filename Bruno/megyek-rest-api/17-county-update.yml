@@ -1,7 +1,7 @@
 info:
-  name: county-update
+  name: 17-county-update
   type: http
-  seq: 15
+  seq: 17
 
 http:
   method: PATCH
@@ -15,6 +15,12 @@ http:
   auth:
     type: bearer
     token: "{{token}}"
+
+runtime:
+  assertions:
+    - expression: res.status
+      operator: eq
+      value: "200"
 
 settings:
   encodeUrl: true

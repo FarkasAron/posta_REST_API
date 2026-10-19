@@ -1,7 +1,7 @@
 info:
-  name: city-delete
+  name: 15-city-delete
   type: http
-  seq: 10
+  seq: 15
 
 http:
   method: DELETE
@@ -9,6 +9,12 @@ http:
   auth:
     type: bearer
     token: "{{token}}"
+
+runtime:
+  assertions:
+    - expression: res.status
+      operator: eq
+      value: "200"
 
 settings:
   encodeUrl: true

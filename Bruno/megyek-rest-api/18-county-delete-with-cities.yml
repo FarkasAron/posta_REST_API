@@ -1,0 +1,23 @@
+info:
+  name: 18-county-delete-with-cities
+  type: http
+  seq: 18
+
+http:
+  method: DELETE
+  url: http://localhost:8000/api/counties/7
+  auth:
+    type: bearer
+    token: "{{token}}"
+
+runtime:
+  assertions:
+    - expression: res.status
+      operator: eq
+      value: "409"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

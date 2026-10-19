@@ -1,0 +1,29 @@
+info:
+  name: 13-city-update-patch
+  type: http
+  seq: 13
+
+http:
+  method: PATCH
+  url: http://localhost:8000/api/cities/{{city_id}}
+  body:
+    type: json
+    data: |-
+      {
+          "population": 2000
+      }
+  auth:
+    type: bearer
+    token: "{{token}}"
+
+runtime:
+  assertions:
+    - expression: res.status
+      operator: eq
+      value: "200"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

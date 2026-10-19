@@ -1,5 +1,5 @@
 info:
-  name: city-show
+  name: 06-city-show
   type: http
   seq: 6
 
@@ -7,6 +7,12 @@ http:
   method: GET
   url: http://localhost:8000/api/cities/1
   auth: inherit
+
+runtime:
+  assertions:
+    - expression: res.status
+      operator: eq
+      value: "200"
 
 settings:
   encodeUrl: true

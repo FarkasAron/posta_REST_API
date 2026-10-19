@@ -1,20 +1,29 @@
 info:
-  name: city-update-patch
+  name: 14-city-update-put
   type: http
-  seq: 8
+  seq: 14
 
 http:
-  method: PATCH
+  method: PUT
   url: http://localhost:8000/api/cities/{{city_id}}
   body:
     type: json
     data: |-
       {
-          "population": 2000
+          "name": "Újváros",
+          "id_county": 7,
+          "zip_code": 8000,
+          "population": 2500
       }
   auth:
     type: bearer
     token: "{{token}}"
+
+runtime:
+  assertions:
+    - expression: res.status
+      operator: eq
+      value: "200"
 
 settings:
   encodeUrl: true
